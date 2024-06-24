@@ -1,34 +1,34 @@
-import './App.css';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
+import Admin from './components/Admin';
 import UserList from './components/UserList';
-import axios from 'axios';
+import InternetBanking from './components/InternetBanking';
+import RegisterClient from './components/RegisterClient';
+import MiBancaLogin from './components/MiBancaLogin';
+import ClientList from './components/ClientList';
+import Dashboard from './components/Dashboard';
 
-const app = axios.create({
-  baseURL: 'http://localhost:8080/api/users', // Ajusta la URL según tu configuración
-});
-
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="container">
-        <h1 className="my-4">BANCO A</h1>
-        <div className="d-flex justify-content-center mb-4">
-          <Link to="/register" className="btn btn-primary mx-2">Abrir Cuenta</Link>
-          <Link to="/login" className="btn btn-primary mx-2">Login</Link>
-          <Link to="/userlist" className="btn btn-primary mx-2">User List</Link>
-        </div>
-        <Routes>
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/userlist" element={<UserList />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path='/userList' element={<UserList />} />
+        <Route path='/internetBanking' element={<InternetBanking />} />
+        <Route path='/registerClient' element={<RegisterClient />} />
+        <Route path='/miBancaLogin' element={<MiBancaLogin />} />
+        <Route path='/clientList' element={<ClientList />} />
+        <Route path='/dashboard/:dni' element={<Dashboard />} />
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;

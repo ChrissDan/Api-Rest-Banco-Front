@@ -19,10 +19,11 @@ export default function UserList(){
   return (
     <div className="container mt-4">
       <div className='py-4'>
+      <h2>Usuarios</h2>
         <table className='table border shadow'>
           <thead>
             <tr>
-              <th scope='col'>#</th>
+              <th scope='col'>ID</th>
               <th scope='col'>UserName</th>
               <th scope='col'>Password</th>
             </tr>
@@ -31,7 +32,7 @@ export default function UserList(){
             {
               users.map((users, index)=>(
                 <tr>
-                  <th scope='row' key={index}>{index+1}</th>
+                  <th scope='row' key={index}>{users.id}</th>
                   <td>{users.username}</td>
                   <td>{users.password}</td>
                   <td>
